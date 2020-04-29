@@ -55,16 +55,21 @@ public class Map {
         double d2 = -grid[x][y].getHeight() + grid[x-1][y].getHeight();
         double d3 = -grid[x][y].getHeight() + grid[x+1][y].getHeight();
 
+
+
         //noise
         Random r = new Random();
-        double noise = r.nextDouble()/10;
+        double noise = r.nextDouble()/12;
         d0 += -noise;
-        noise = r.nextDouble()/10;
+        noise = r.nextDouble()/12;
         d1 += -noise;
-        noise = r.nextDouble()/10;
+        noise = r.nextDouble()/12;
         d2 += -noise;
-        noise = r.nextDouble()/10;
+        noise = r.nextDouble()/12;
         d3 += -noise;
+
+
+
 
         double[] diffArray = {d0,d1,d2,d3};
 
