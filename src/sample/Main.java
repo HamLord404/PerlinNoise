@@ -26,6 +26,10 @@ public class Main extends Application {
             }
         }
 
+        for(int i = 0; i < 150; i++){
+            map.generateRivers();
+        }
+
 
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
