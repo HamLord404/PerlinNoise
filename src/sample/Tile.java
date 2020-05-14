@@ -9,13 +9,15 @@ import javafx.scene.shape.Rectangle;
 import java.util.Random;
 
 public class Tile {
-    private static double seaLevel = 0.45;
+    private static double seaLevel = 0.50;
+    private static double mountianLevel = 0.8;
+    private static double snowLevel = 0.9;
     private double height;
     private Rectangle rect;
     private boolean water = false;
     private int x;
     private int y;
-    private static int rectangleSize = 2;
+    private static int rectangleSize = 5;
     private static int riverChance = 97;
 
     public Tile(Pane root, int x, int y, double height){
@@ -46,8 +48,31 @@ public class Tile {
             color = Color.LIGHTBLUE;
             water = true;
         }
+        else if(normHeight > mountianLevel && normHeight < snowLevel){
+            color = Color.GRAY;
+            water = false;
+        } else if(normHeight > snowLevel){
+            color = Color.WHITE;
+            water = false;
+        }
+        else {
+            water = false;
+        }
 
         return color;
+    }
+
+    public void reevaluateColor(){
+        Color colour = Color.GREEN;
+
+
+
+        colour = colour.interpolate(Color.BROWN,height);
+
+        colour = chooseTerrain(colour,height);
+
+        rect.setFill(colour);
+
     }
 
     public static double getSeaLevel() {

@@ -9,8 +9,12 @@ public class PerlinNoiseGenerator {
 
 
 
+
+
     public PerlinNoiseGenerator(int sizeX, int sizeY){
         gradVectors = new Vector[sizeX][sizeY];
+
+
         for(int i =0; i < sizeX; i++){
             for(int j =0; j < sizeY; j++){
                 gradVectors[i][j] = new Vector();
@@ -56,4 +60,5 @@ public class PerlinNoiseGenerator {
 
         return lerp(thing0,thing1,wy);
     }
+
 }
